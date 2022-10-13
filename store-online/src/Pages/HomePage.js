@@ -1,9 +1,10 @@
 import React from 'react';
+import HomePageHeader from '../Component/Header/HomePageHeader';
 
 function HomePage() {
   return (
     <>
-      <h1>Testando...</h1>
+      <HomePageHeader />
     </>
   )  
 }
