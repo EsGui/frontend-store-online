@@ -9,11 +9,18 @@ function HomePageHeader() {
     color: 'black'
   }
 
+  const styleLinkHeader = {
+    marginRight: '10px',
+    textDecoration: 'none',
+    color: 'black',
+    fontSize: '40px'
+  }
+
   return (
     <>
       <div className="ContainerHomePageHeader">
         <div className="TitleHomePageHeader">
-            <h1>Store Online</h1>
+            <Link to="/" style={ styleLinkHeader }>Store Online</Link>
         </div>
         <div className="SearchHomePageHeader">
             <input type="search" placeholder="Pesquise algo..." />

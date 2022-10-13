@@ -5,6 +5,7 @@
   border: 1px solid black;
   background: rgb(2,0,36);
   background: linear-gradient(103deg, rgba(2,0,36,1) 0%, rgba(255,128,54,1) 0%);
+  height: 100px;
 }
 
 .SearchHomePageHeader input{
