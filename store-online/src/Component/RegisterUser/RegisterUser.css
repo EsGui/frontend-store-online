@@ -1,0 +1,17 @@
+.ContainerRegisterUser {
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+}
+
+.DivRegisterUser {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.DivRegisterUser input {
+  height: 30px;
+  margin-bottom: 20px;
+}
