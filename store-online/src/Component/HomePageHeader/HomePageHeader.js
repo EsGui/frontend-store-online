@@ -22,7 +22,7 @@ function HomePageHeader() {
             <Link style={ styleLink }>Carrinho</Link>
             <Link style={ styleLink }>Favoritos</Link>
             <Link style={ styleLink }>Compras</Link>
-            <Link style={ styleLink }>Login</Link>
+            <Link to="/login" style={ styleLink }>Login</Link>
         </div>
       </div>
     </>
