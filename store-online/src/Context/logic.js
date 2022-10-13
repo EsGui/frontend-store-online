@@ -10,9 +10,8 @@ function Logic ({ children }) {
   const handleSetPasswordLogin = ({ target }) => setPasswordLogin(target.value);
   const handleButtonLoginUser = async () => {
     const responseLoginUser = await requestUser.userLogin(emailLogin, passwordLogin);
-    window.alert(responseLoginUser.message)
+    window.alert(responseLoginUser.message);
   }
-
 
   const objValue = {
     handleSetEmailLogin,
