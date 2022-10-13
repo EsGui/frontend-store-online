@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import './HomePageHeader.css'
 
 function HomePageHeader() {
+  const styleLink = {
+    marginRight: '10px'
+  }
+
   return (
     <>
       <div className="ContainerHomePageHeader">
@@ -13,10 +17,10 @@ function HomePageHeader() {
             <input type="search" placeholder="Pesquise algo..." />
         </div>
         <div className="MenuHomePageHeader">
-            <Link>Carrinho</Link>
-            <Link>Favoritos</Link>
-            <Link>Compras</Link>
-            <Link>Login</Link>
+            <Link style={ styleLink }>Carrinho</Link>
+            <Link style={ styleLink }>Favoritos</Link>
+            <Link style={ styleLink }>Compras</Link>
+            <Link style={ styleLink }>Login</Link>
         </div>
       </div>
     </>
