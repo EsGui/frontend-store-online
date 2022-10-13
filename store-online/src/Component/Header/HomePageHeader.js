@@ -4,7 +4,9 @@ import './HomePageHeader.css'
 
 function HomePageHeader() {
   const styleLink = {
-    marginRight: '10px'
+    marginRight: '10px',
+    textDecoration: 'none',
+    color: 'black'
   }
 
   return (
