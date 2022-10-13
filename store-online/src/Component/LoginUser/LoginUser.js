@@ -8,6 +8,7 @@ function LoginUser() {
         <div className="UserLoginPage">
             <input type="email" placeholder="Digite seu email" />
             <input type="password" placeholder="Digite sua senha" />
+            <button type="button">Entrar</button>
         </div>
       </div>
     </>
