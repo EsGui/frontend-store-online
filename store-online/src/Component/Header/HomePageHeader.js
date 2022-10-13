@@ -5,13 +5,13 @@ import './HomePageHeader.css'
 function HomePageHeader() {
   return (
     <>
-      <div>
+      <div className="TitleHomePageHeader">
         <h1>Store Online</h1>
       </div>
-      <div>
+      <div className="SearchHomePageHeader">
         <input type="search" placeholder="Pesquise algo..." />
       </div>
-      <div>
+      <div className="MenuHomePageHeader">
         <Link>Carrinho</Link>
         <Link>Favoritos</Link>
         <Link>Compras</Link>
