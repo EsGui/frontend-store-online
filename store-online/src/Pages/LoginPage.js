@@ -1,9 +1,11 @@
 import React from 'react'
+import HomePageHeader from '../Component/HomePageHeader/HomePageHeader';
 import LoginUser from '../Component/LoginUser/LoginUser';
 
 function LoginPage() {
   return (
     <>
+      <HomePageHeader />
       <LoginUser />
     </>
   )
