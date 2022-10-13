@@ -24,3 +24,8 @@
   height: 50px;
   width: 80px;
 }
+
+.UserLoginPage img {
+  width: 150px;
+  margin-bottom: 10px
+}
