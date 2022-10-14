@@ -23,6 +23,19 @@ const requestUser = {
     });
     const response = request.json();
     return response;
+  },
+
+  dataUserLogged: async (token) => {
+    const url = 'http://localhost:3001/validatetoken'
+    const request = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: JSON.parse(token),
+      },
+    });
+    const response = await request.json();
+    return response;
   }
 }
 

@@ -17,6 +17,7 @@ function Logic ({ children }) {
   const [stateRegister, setStateRegister] = useState('');
   const [cityRegister, setCityRegister] = useState('');
   const [genreRegister, setGenreRegister] = useState('');
+  const [dataUser, setDataUser] = useState('');
 
   const handleSetNameRegister = ({ target }) => setNameRegister(target.value);
   const handleSetLastNameRegister = ({ target }) => setLastName(target.value);
@@ -40,8 +41,15 @@ function Logic ({ children }) {
       window.alert(responseLoginUser.message);
     }
     console.log(responseLoginUser);
-    localStorage.setItem('tokenUser', JSON.stringify(responseLoginUser.token));
-  }
+    if (responseLoginUser.token) {
+      console.log(dataUser);
+      localStorage.setItem('tokenUser', JSON.stringify(responseLoginUser.token));
+    }
+    if (localStorage.getItem('tokenUser')) {
+      const User = await requestUser.dataUserLogged(localStorage.getItem('tokenUser'));
+      setDataUser(User);
+    }
+  };
 
   const handleButtonRegisterUser = async () => {
     const objectUserRegister = {
@@ -80,6 +88,7 @@ function Logic ({ children }) {
     handleSetStateRegister,
     handleSetCityRegister,
     handleSetGenreRegister,
+    dataUser,
   }
 
   return (
