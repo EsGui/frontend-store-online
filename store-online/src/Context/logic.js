@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import requestUser from '../Services/requestUser';
 import myContext from './myContext';
 
@@ -18,6 +18,7 @@ function Logic ({ children }) {
   const [cityRegister, setCityRegister] = useState('');
   const [genreRegister, setGenreRegister] = useState('');
   const [dataUser, setDataUser] = useState('');
+  const [tokenUser, setTokenUser] = useState('');
 
   const handleSetNameRegister = ({ target }) => setNameRegister(target.value);
   const handleSetLastNameRegister = ({ target }) => setLastName(target.value);
@@ -34,6 +35,25 @@ function Logic ({ children }) {
 
   const handleSetEmailLogin = ({ target }) => setEmailLogin(target.value);
   const handleSetPasswordLogin = ({ target }) => setPasswordLogin(target.value);
+
+  const handleButtonLoginUser = async () => {
+    const responseLoginUser = await requestUser.userLogin(emailLogin, passwordLogin);
+    if (responseLoginUser.message) {
+      window.alert(responseLoginUser.message);
+    }
+    if (responseLoginUser.token) {
+      localStorage.setItem('tokenUser', JSON.stringify(responseLoginUser.token));
+    }
+    setTokenUser(localStorage.getItem('tokenUser'));
+  };
+
+  useEffect(() => {
+    const request = async () => {
+      const User = await requestUser.dataUserLogged(localStorage.getItem('tokenUser'));
+      setDataUser(User);
+    }
+    request();
+  }, [tokenUser]);
 
   const handleButtonRegisterUser = async () => {
     const objectUserRegister = {
@@ -71,6 +91,7 @@ function Logic ({ children }) {
     handleSetCityRegister,
     handleSetGenreRegister,
     setDataUser,
+    handleButtonLoginUser,
     dataUser,
     emailLogin,
     passwordLogin,

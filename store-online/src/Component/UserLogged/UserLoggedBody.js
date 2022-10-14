@@ -10,7 +10,7 @@ function UserLoggedBody() {
 
   return (
     <>
-      <h1>Testando...</h1>
+      <h1>{ dataUser.firstName } { dataUser.lastName }</h1>
     </>
   )
 }
