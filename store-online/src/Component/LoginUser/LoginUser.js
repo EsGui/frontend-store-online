@@ -1,14 +1,37 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import myContext from '../../Context/myContext';
+import requestUser from '../../Services/requestUser';
 import './LoginUser.css'
 
 function LoginUser() {
   const {
     handleSetEmailLogin,
     handleSetPasswordLogin,
-    handleButtonLoginUser,
+    dataUser,
+    setDataUser,
+    emailLogin,
+    passwordLogin,
   } = useContext(myContext);
+
+  const history = useHistory()
+
+  const handleButtonLoginUser = async () => {
+    const responseLoginUser = await requestUser.userLogin(emailLogin, passwordLogin);
+    if (responseLoginUser.message) {
+      window.alert(responseLoginUser.message);
+    }
+    console.log(responseLoginUser);
+    if (responseLoginUser.token) {
+      console.log(dataUser);
+      localStorage.setItem('tokenUser', JSON.stringify(responseLoginUser.token));
+    }
+    if (localStorage.getItem('tokenUser')) {
+      const User = await requestUser.dataUserLogged(localStorage.getItem('tokenUser'));
+      setDataUser(User);
+      history.push('/userlogged')
+    }
+  };
 
   return (
     <>

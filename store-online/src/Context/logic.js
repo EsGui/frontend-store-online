@@ -34,22 +34,6 @@ function Logic ({ children }) {
 
   const handleSetEmailLogin = ({ target }) => setEmailLogin(target.value);
   const handleSetPasswordLogin = ({ target }) => setPasswordLogin(target.value);
-  
-  const handleButtonLoginUser = async () => {
-    const responseLoginUser = await requestUser.userLogin(emailLogin, passwordLogin);
-    if (responseLoginUser.message) {
-      window.alert(responseLoginUser.message);
-    }
-    console.log(responseLoginUser);
-    if (responseLoginUser.token) {
-      console.log(dataUser);
-      localStorage.setItem('tokenUser', JSON.stringify(responseLoginUser.token));
-    }
-    if (localStorage.getItem('tokenUser')) {
-      const User = await requestUser.dataUserLogged(localStorage.getItem('tokenUser'));
-      setDataUser(User);
-    }
-  };
 
   const handleButtonRegisterUser = async () => {
     const objectUserRegister = {
@@ -66,7 +50,6 @@ function Logic ({ children }) {
       state: stateRegister,
       city: cityRegister,
     }
-    console.log(objectUserRegister);
     const responseRegisterUser = await requestUser.registerUser(objectUserRegister);
     window.alert(responseRegisterUser.message);
   }
@@ -74,7 +57,6 @@ function Logic ({ children }) {
   const objValue = {
     handleSetEmailLogin,
     handleSetPasswordLogin,
-    handleButtonLoginUser,
     handleButtonRegisterUser,
     handleSetNameRegister,
     handleSetLastNameRegister,
@@ -88,7 +70,10 @@ function Logic ({ children }) {
     handleSetStateRegister,
     handleSetCityRegister,
     handleSetGenreRegister,
+    setDataUser,
     dataUser,
+    emailLogin,
+    passwordLogin,
   }
 
   return (

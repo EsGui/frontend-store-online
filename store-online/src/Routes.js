@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
 import RegisterUserPage from './Pages/RegisterUserPage';
+import UserLogged from './Pages/UserLogged';
 
 function Router() {
     return (
@@ -11,6 +12,7 @@ function Router() {
           <Route exact path="/" component={ HomePage } />
           <Route path="/login" component={ LoginPage } />
           <Route path="/register" component={ RegisterUserPage } />
+          <Route path="/userlogged" component={ UserLogged } />
         </Switch>
       </BrowserRouter>
     )
