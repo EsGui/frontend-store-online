@@ -36,6 +36,7 @@ function HomePageHeader() {
           <Link style={ styleLink }>Favoritos</Link>
           <Link style={ styleLink }>Compras</Link>
           <Link style={ styleLink }>Vendas</Link>
+          <Link to="/announcement" style={ styleLink }>Anúncios</Link>
           {
             dataUser.token ? (
               <>

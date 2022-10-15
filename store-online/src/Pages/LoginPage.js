@@ -1,5 +1,5 @@
 import React from 'react'
-import HomePageHeader from '../Component/HomePageHeader/HomePageHeader';
+import HomePageHeader from '../Component/HomePage/HomePageHeader';
 import LoginUser from '../Component/LoginUser/LoginUser';
 
 function LoginPage() {
