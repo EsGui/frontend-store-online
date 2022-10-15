@@ -34,9 +34,10 @@ function HomePageHeader() {
           <Link style={ styleLink }>Carrinho</Link>
           <Link style={ styleLink }>Favoritos</Link>
           <Link style={ styleLink }>Compras</Link>
+          <Link style={ styleLink }>Vendas</Link>
           {
             dataUser.token ? (
-              <p>{ dataUser.firstName } { dataUser.lastName }</p>
+              <p>{ dataUser.firstName }</p>
             ) : (
               <Link to="/login" style={ styleLink }>Login</Link>    
             )

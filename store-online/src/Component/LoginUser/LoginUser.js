@@ -11,8 +11,6 @@ function LoginUser() {
     dataUser,
   } = useContext(myContext);
 
-  
-
   return (
     <>
       <div className="ContainerLoginPage">
