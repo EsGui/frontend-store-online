@@ -47,6 +47,11 @@ function Logic ({ children }) {
     setTokenUser(localStorage.getItem('tokenUser'));
   };
 
+  const handleLoggout = () => {
+    localStorage.removeItem('tokenUser');
+    setTokenUser('');
+  }
+
   useEffect(() => {
     const request = async () => {
       const User = await requestUser.dataUserLogged(localStorage.getItem('tokenUser'));
@@ -92,6 +97,7 @@ function Logic ({ children }) {
     handleSetGenreRegister,
     setDataUser,
     handleButtonLoginUser,
+    handleLoggout,
     dataUser,
     emailLogin,
     passwordLogin,

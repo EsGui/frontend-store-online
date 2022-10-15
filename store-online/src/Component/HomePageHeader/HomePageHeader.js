@@ -6,6 +6,7 @@ import './HomePageHeader.css'
 function HomePageHeader() {
   const {
     dataUser,
+    handleLoggout,
   } = useContext(myContext);
 
   const styleLink = {
@@ -39,7 +40,7 @@ function HomePageHeader() {
             dataUser.token ? (
               <>
                 <Link to="/userlogged" style={ styleLink }>{ dataUser.firstName }</Link>
-                <Link style={ styleLink }>Sair</Link>
+                <Link onClick={ handleLoggout } to="/" style={ styleLink }>Sair</Link>
               </>
             ) : (
               <Link to="/login" style={ styleLink }>Login</Link>    
