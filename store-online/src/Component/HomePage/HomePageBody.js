@@ -1,0 +1,41 @@
+import React, { useContext } from 'react';
+import myContext from '../../Context/myContext';
+import './HomePageBody.css'
+
+function HomePageBody() {
+  const {
+    productUser
+  } = useContext(myContext);
+
+  return (
+    <>
+      <div className="ContainerProductAnnouncement">
+        {
+          productUser && productUser.map(({
+            id,
+            category,
+            description,
+            imageProduct,
+            price,
+            productName,
+            quantity,
+            sold,
+          }) => (
+            <div className="DivProductAnnouncement">
+              <img width="400px" src={ imageProduct } alt={ productName } />
+              <p>{ productName }</p>
+              <p>{ price }</p>
+              <p>{ category }</p>
+              <p>{ description }</p>
+              <p>{ sold } / { quantity }</p>
+              <button type="button">Favoritar</button>
+              <button type="button">Compra</button>
+            </div>
+          ))
+        }
+      </div>
+    </>
+  )
+}
+
+export default HomePageBody;

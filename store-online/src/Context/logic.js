@@ -75,12 +75,14 @@ function Logic ({ children }) {
       category,
       userId: dataUser.id,
     });
+    document.location.reload();
     console.log(response)
   };
 
   const handleButtonDeleteRegisterProduct = async ({ target }) => {
     const product = await requestProducts.deleteProduct(target.id);
     console.log(product);
+    document.location.reload();
   }
 
   const handleLoggout = () => {
@@ -104,6 +106,7 @@ function Logic ({ children }) {
     request();
   }, []);
 
+  console.log(dataUser);
   console.log('Log do produto =>', productUser);
 
   const handleButtonRegisterUser = async () => {

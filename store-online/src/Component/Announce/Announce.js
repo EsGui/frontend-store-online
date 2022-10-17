@@ -32,7 +32,7 @@ function AnnouncementBody() {
         <input type="text" onChange={ handleDescription } placeholder="Descrição do produto" />
         <input type="text" onChange={ handleImageProduct } placeholder="Imagem do produto" />
         <input type="text" onChange={ handleCategory } placeholder="Categoria do produto" />
-        <button onClick={ handleButtonRegisterProduct } type="button">Cadastrar produto</button>
+        <Link style={ styleLink } to="/announcement" onClick={ handleButtonRegisterProduct }>Cadastrar produto</Link>
       </div>
     </>
   )
