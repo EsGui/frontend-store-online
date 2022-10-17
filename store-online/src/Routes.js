@@ -5,6 +5,7 @@ import AnnouncePage from './Pages/AnnouncePage';
 import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
 import ProductFavoritePage from './Pages/ProductFavoritePage';
+import ProductSpecificPage from './Pages/ProductSpecificPage';
 import RegisterUserPage from './Pages/RegisterUserPage';
 import UserLogged from './Pages/UserLogged';
 
@@ -19,6 +20,7 @@ function Router() {
           <Route path="/announcement" component={ AnnouncementPage } />
           <Route path="/productannounce" component={ AnnouncePage } />
           <Route path="/productfavorite" component={ ProductFavoritePage } />
+          <Route path="/productspecific/:id" render={ (props) => <ProductSpecificPage { ...props } /> } />
         </Switch>
       </BrowserRouter>
     )

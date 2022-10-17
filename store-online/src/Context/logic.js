@@ -105,7 +105,7 @@ function Logic ({ children }) {
     );
 
     console.log(favorito);
-    
+
     window.location.reload();
   }
 
