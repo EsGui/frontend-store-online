@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import myContext from '../../Context/myContext';
+import './ProductCartBody.css';
 
 function ProductCartBody() {
   const {
@@ -10,7 +11,7 @@ function ProductCartBody() {
   return (
     <>
       <div className="DivTitlePurchases">
-        <h1>Compras</h1>
+        <h1>Carrinho</h1>
       </div>
       <div className="ContainerPurchases">
         {

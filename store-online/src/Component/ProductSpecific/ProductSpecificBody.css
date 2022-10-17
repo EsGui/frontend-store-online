@@ -1,0 +1,53 @@
+.StyleProductSpecific {
+  display: flex;
+  justify-content: center;
+}
+
+.StyleProductSpecificUser {
+  display: flex;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;;
+}
+
+.StyleProductSpecificProduct {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.StyleCommentUser {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  align-items: center;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.TitleCommentUser {
+  display: flex;
+  justify-content: center;
+}
+
+.StyleCommentUserProductSpecific {
+  max-width: 800px;
+  max-height: 200px;
+  min-width: 800px;
+  min-height: 200px;
+}
+
+.ContainerCommentUserProductSpecific {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ContainerCommentUserProductSpecific textarea {
+  margin-bottom: 20px;
+}
