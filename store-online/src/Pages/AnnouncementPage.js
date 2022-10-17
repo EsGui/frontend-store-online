@@ -1,6 +1,6 @@
 import React from 'react';
 import HomePageHeader from '../Component/HomePage/HomePageHeader';
-import AnnouncementBody from '../Component/announcement/announcementBody'
+import AnnouncementBody from '../Component/Announcement/announcementBody'
 
 function announcementPage() {
   return (

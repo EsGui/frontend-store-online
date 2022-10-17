@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import announcementPage from './Pages/announcementPage';
+import AnnouncementPage from './Pages/AnnouncementPage';
 import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
 import RegisterUserPage from './Pages/RegisterUserPage';
@@ -14,7 +14,7 @@ function Router() {
           <Route path="/login" component={ LoginPage } />
           <Route path="/register" component={ RegisterUserPage } />
           <Route path="/userlogged" component={ UserLogged } />
-          <Route path="/announcement" component={ announcementPage } />
+          <Route path="/announcement" component={ AnnouncementPage } />
         </Switch>
       </BrowserRouter>
     )
