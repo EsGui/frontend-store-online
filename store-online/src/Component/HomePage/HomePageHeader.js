@@ -33,7 +33,7 @@ function HomePageHeader() {
         </div>
         <div className="MenuHomePageHeader">
           <Link style={ styleLink }>Carrinho</Link>
-          <Link style={ styleLink }>Favoritos</Link>
+          <Link to="/productfavorite" style={ styleLink }>Favoritos</Link>
           <Link style={ styleLink }>Compras</Link>
           <Link style={ styleLink }>Vendas</Link>
           <Link to="/announcement" style={ styleLink }>Anúncios</Link>

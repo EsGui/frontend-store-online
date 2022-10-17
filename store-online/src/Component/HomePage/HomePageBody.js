@@ -4,7 +4,8 @@ import './HomePageBody.css'
 
 function HomePageBody() {
   const {
-    productUser
+    productUser,
+    handleButtonAddProductFavorite
   } = useContext(myContext);
 
   return (
@@ -28,7 +29,7 @@ function HomePageBody() {
               <p>{ category }</p>
               <p>{ description }</p>
               <p>{ sold } / { quantity }</p>
-              <button type="button">Favoritar</button>
+              <button id={ id } onClick={ handleButtonAddProductFavorite } type="button">Favoritar</button>
               <button type="button">Adicionar ao carrinho</button>
             </div>
           ))

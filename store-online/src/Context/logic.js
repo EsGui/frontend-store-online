@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import requestProducts from '../Services/RequestProducts';
+import requestFavorites from '../Services/requestFavorites';
+import requestProducts from '../Services/requestProducts';
 import requestUser from '../Services/requestUser';
 import myContext from './myContext';
 
@@ -85,6 +86,29 @@ function Logic ({ children }) {
     document.location.reload();
   }
 
+  const handleButtonDeleteProductFavorite = async ({ target }) => {
+    const product = await requestFavorites.deleteFavorite(target.id);
+    console.log(product);
+    document.location.reload();
+  }
+
+  const handleButtonAddProductFavorite = async ({ target }) => {
+    console.log(target.id)
+    const productFavorite = await requestProducts.productSpecific(target.id);
+    console.log(productFavorite);
+    const favorito = await requestFavorites.createFavorite(
+      productFavorite.productName,
+      productFavorite.price,
+      productFavorite.imageProduct,
+      dataUser.id,
+      target.id,
+    );
+
+    console.log(favorito);
+    
+    window.location.reload();
+  }
+
   const handleLoggout = () => {
     localStorage.removeItem('tokenUser');
     setTokenUser('');
@@ -156,6 +180,8 @@ function Logic ({ children }) {
     handleCategory,
     handleButtonRegisterProduct,
     handleButtonDeleteRegisterProduct,
+    handleButtonDeleteProductFavorite,
+    handleButtonAddProductFavorite,
     dataUser,
     emailLogin,
     passwordLogin,

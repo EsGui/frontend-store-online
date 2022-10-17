@@ -4,6 +4,7 @@ import AnnouncementPage from './Pages/AnnouncementPage';
 import AnnouncePage from './Pages/AnnouncePage';
 import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
+import ProductFavoritePage from './Pages/ProductFavoritePage';
 import RegisterUserPage from './Pages/RegisterUserPage';
 import UserLogged from './Pages/UserLogged';
 
@@ -17,6 +18,7 @@ function Router() {
           <Route path="/userlogged" component={ UserLogged } />
           <Route path="/announcement" component={ AnnouncementPage } />
           <Route path="/productannounce" component={ AnnouncePage } />
+          <Route path="/productfavorite" component={ ProductFavoritePage } />
         </Switch>
       </BrowserRouter>
     )
