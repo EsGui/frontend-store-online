@@ -29,7 +29,7 @@ function HomePageBody() {
               <p>{ description }</p>
               <p>{ sold } / { quantity }</p>
               <button type="button">Favoritar</button>
-              <button type="button">Compra</button>
+              <button type="button">Adicionar ao carrinho</button>
             </div>
           ))
         }
