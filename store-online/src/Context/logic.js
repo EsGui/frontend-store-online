@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import requestProducts from '../Services/RequestProducts';
 import requestUser from '../Services/requestUser';
 import myContext from './myContext';
 
@@ -19,6 +20,14 @@ function Logic ({ children }) {
   const [genreRegister, setGenreRegister] = useState('');
   const [dataUser, setDataUser] = useState('');
   const [tokenUser, setTokenUser] = useState('');
+  const [productUser, setProductUser] = useState([]);
+  const [productName, setProductName] = useState('');
+  const [price, setPrice] = useState('');
+  const [quantity, setQuantity] = useState('');
+  const [sold, setSold] = useState('');
+  const [description, setDescription] = useState('');
+  const [imageProduct, setImageProduct] = useState('');
+  const [category, setCategory] = useState('');
 
   const handleSetNameRegister = ({ target }) => setNameRegister(target.value);
   const handleSetLastNameRegister = ({ target }) => setLastName(target.value);
@@ -31,7 +40,15 @@ function Logic ({ children }) {
   const handleSetCepRegister = ({ target }) => setCepRegister(target.value);
   const handleSetStateRegister = ({ target }) => setStateRegister(target.value);
   const handleSetCityRegister = ({ target }) => setCityRegister(target.value);
-  const handleSetGenreRegister = ({ target }) => setGenreRegister(target.value)
+  const handleSetGenreRegister = ({ target }) => setGenreRegister(target.value);
+
+  const handleProductName = ({ target }) => setProductName(target.value);
+  const handlePrice = ({ target }) =>  setPrice(target.value);
+  const handleQuantity = ({ target }) => setQuantity(target.value);
+  const handleSold = ({ target }) => setSold(target.value);
+  const handleDescription = ({ target }) => setDescription(target.value);
+  const handleImageProduct = ({ target }) => setImageProduct(target.value);
+  const handleCategory = ({ target }) => setCategory(target.value);
 
   const handleSetEmailLogin = ({ target }) => setEmailLogin(target.value);
   const handleSetPasswordLogin = ({ target }) => setPasswordLogin(target.value);
@@ -47,10 +64,29 @@ function Logic ({ children }) {
     setTokenUser(localStorage.getItem('tokenUser'));
   };
 
+  const handleButtonRegisterProduct = async () => {
+    const response = await requestProducts.registerProduct({
+      productName,
+      price,
+      quantity,
+      sold,
+      description,
+      imageProduct,
+      category,
+      userId: dataUser.id,
+    });
+    console.log(response)
+  };
+
+  const handleButtonDeleteRegisterProduct = async ({ target }) => {
+    const product = await requestProducts.deleteProduct(target.id);
+    console.log(product);
+  }
+
   const handleLoggout = () => {
     localStorage.removeItem('tokenUser');
     setTokenUser('');
-  }
+  };
 
   useEffect(() => {
     const request = async () => {
@@ -59,6 +95,16 @@ function Logic ({ children }) {
     }
     request();
   }, [tokenUser]);
+
+  useEffect(() => {
+    const request = async () => {
+      const product = await requestProducts.allProducts();
+      setProductUser(product);
+    }
+    request();
+  }, []);
+
+  console.log('Log do produto =>', productUser);
 
   const handleButtonRegisterUser = async () => {
     const objectUserRegister = {
@@ -98,9 +144,19 @@ function Logic ({ children }) {
     setDataUser,
     handleButtonLoginUser,
     handleLoggout,
+    handleProductName,
+    handlePrice,
+    handleQuantity,
+    handleSold,
+    handleDescription,
+    handleImageProduct,
+    handleCategory,
+    handleButtonRegisterProduct,
+    handleButtonDeleteRegisterProduct,
     dataUser,
     emailLogin,
     passwordLogin,
+    productUser,
   }
 
   return (

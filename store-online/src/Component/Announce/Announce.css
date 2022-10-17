@@ -1,0 +1,13 @@
+.ContainerRegisterProduct {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  margin-top: 40px;
+}
+
+.ContainerRegisterProduct input, button {
+  width: 50%;
+  margin-bottom: 20px;
+}

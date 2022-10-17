@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AnnouncementPage from './Pages/AnnouncementPage';
+import AnnouncePage from './Pages/AnnouncePage';
 import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
 import RegisterUserPage from './Pages/RegisterUserPage';
@@ -15,6 +16,7 @@ function Router() {
           <Route path="/register" component={ RegisterUserPage } />
           <Route path="/userlogged" component={ UserLogged } />
           <Route path="/announcement" component={ AnnouncementPage } />
+          <Route path="/productannounce" component={ AnnouncePage } />
         </Switch>
       </BrowserRouter>
     )
