@@ -4,6 +4,7 @@ import AnnouncementPage from './Pages/AnnouncementPage';
 import AnnouncePage from './Pages/AnnouncePage';
 import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage';
+import ProductCartPage from './Pages/ProductCartPage';
 import ProductFavoritePage from './Pages/ProductFavoritePage';
 import ProductSpecificPage from './Pages/ProductSpecificPage';
 import RegisterUserPage from './Pages/RegisterUserPage';
@@ -21,6 +22,7 @@ function Router() {
           <Route path="/productannounce" component={ AnnouncePage } />
           <Route path="/productfavorite" component={ ProductFavoritePage } />
           <Route path="/productspecific/:id" render={ (props) => <ProductSpecificPage { ...props } /> } />
+          <Route path="/productcart" component={ ProductCartPage } />
         </Switch>
       </BrowserRouter>
     )

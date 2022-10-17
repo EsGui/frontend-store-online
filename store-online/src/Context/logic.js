@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import requestCart from '../Services/requestCartProduct';
 import requestFavorites from '../Services/requestFavorites';
 import requestProducts from '../Services/requestProducts';
 import requestUser from '../Services/requestUser';
@@ -106,7 +107,31 @@ function Logic ({ children }) {
 
     console.log(favorito);
 
-    window.location.reload();
+    document.location.reload();
+  }
+
+  const handleButtonPurchase = async ({ target }) => {
+    const productCart = await requestCart.productCartSpecific(target.id);
+    console.log('Id do produto =>', target.id);
+    console.log(productCart);
+    console.log('Aqui ===>>>', productCart.user[0].id)
+    const cadastro = await requestCart.productCart(
+      productCart.imageProduct,
+      productCart.productName,
+      productCart.price,
+      dataUser.id,
+      target.id,
+      productCart.user[0].id,
+    );
+
+    console.log(cadastro);
+    document.location.reload();
+  };
+
+  const handleButtonDeletePurchase = async ({ target }) => {
+    document.location.reload();
+    await requestCart.ProductCartDeleted(target.id);
+    document.location.reload();
   }
 
   const handleLoggout = () => {
@@ -182,6 +207,8 @@ function Logic ({ children }) {
     handleButtonDeleteRegisterProduct,
     handleButtonDeleteProductFavorite,
     handleButtonAddProductFavorite,
+    handleButtonPurchase,
+    handleButtonDeletePurchase,
     dataUser,
     emailLogin,
     passwordLogin,

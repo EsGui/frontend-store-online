@@ -7,6 +7,7 @@ function HomePageBody() {
   const {
     productUser,
     handleButtonAddProductFavorite,
+    handleButtonPurchase,
   } = useContext(myContext);
 
   console.log('cheguei', productUser)
@@ -26,16 +27,16 @@ function HomePageBody() {
             sold,
           }) => (
             <div className="DivProductAnnouncement">
-              <Link to={ `/productspecific/${ id }` }>
-                <img width="400px" src={ imageProduct } alt={ productName } />
-                <p>{ productName }</p>
-                <p>{ price }</p>
-                <p>{ category }</p>
-                <p>{ description }</p>
-                <p>{ sold } / { quantity }</p>
+                <Link to={ `/productspecific/${ id }` }>
+                  <img width="400px" src={ imageProduct } alt={ productName } />
+                  <p>{ productName }</p>
+                  <p>{ price }</p>
+                  <p>{ category }</p>
+                  <p>{ description }</p>
+                  <p>{ sold } / { quantity }</p>
+                </Link>
                 <button id={ id } onClick={ handleButtonAddProductFavorite } type="button">Favoritar</button>
-                <button type="button">Adicionar ao carrinho</button>
-              </Link>
+                <button id={ id } onClick={ handleButtonPurchase } type="button">Adicionar ao carrinho</button>
             </div>
           ))
         }

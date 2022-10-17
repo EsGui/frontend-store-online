@@ -32,7 +32,7 @@ function HomePageHeader() {
             <input type="search" placeholder="Pesquise algo..." />
         </div>
         <div className="MenuHomePageHeader">
-          <Link style={ styleLink }>Carrinho</Link>
+          <Link to="/productcart" style={ styleLink }>Carrinho</Link>
           <Link to="/productfavorite" style={ styleLink }>Favoritos</Link>
           <Link style={ styleLink }>Compras</Link>
           <Link style={ styleLink }>Vendas</Link>

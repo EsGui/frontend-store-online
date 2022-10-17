@@ -24,9 +24,11 @@ function ProductSpecificBody({ value }) {
           <>
             {
               <>
-                <h1>{ productSpecific.productName }</h1>
-                <img width="400px" src={ productSpecific.imageProduct } alt="Imagem do produto"/>
-                <p> R$ { productSpecific.price }</p>
+                <div>
+                    <h1>{ productSpecific.productName }</h1>
+                    <img width="400px" src={ productSpecific.imageProduct } alt="Imagem do produto"/>
+                    <p> R$ { productSpecific.price }</p>
+                </div>
                 {
                     productSpecific && productSpecific.user &&
                     productSpecific.user.map(({
@@ -35,9 +37,9 @@ function ProductSpecificBody({ value }) {
                         imageUser
                     }) => (
                         <div key={ id }>
-                        <h2>Vendedor</h2>
-                        <img width="400px" src={ imageUser } alt="Imagem do usuário"/>
-                        <p>{ firstName } { lastName }</p>
+                            <h2>Vendedor</h2>
+                            <img width="400px" src={ imageUser } alt="Imagem do usuário"/>
+                            <p>{ firstName } { lastName }</p>
                         </div>
                     ))
                 }
