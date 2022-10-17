@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import myContext from '../../Context/myContext';
+import './ProductFavoriteBody.css'
 
 function ProductFavoriteBody() {
   const {
@@ -9,6 +10,9 @@ function ProductFavoriteBody() {
 
   return (
     <>
+      <div className="TitleProductFavorite">
+        <h1>Favoritos</h1>
+      </div>
       <div className="ContainerProductFavorite">
         {
           dataUser && dataUser.productFavorite && dataUser.productFavorite.map(({

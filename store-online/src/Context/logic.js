@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import requestCart from '../Services/requestCartProduct';
+import requestComments from '../Services/requestCommentUser';
 import requestFavorites from '../Services/requestFavorites';
 import requestProducts from '../Services/requestProducts';
 import requestUser from '../Services/requestUser';
@@ -30,6 +31,7 @@ function Logic ({ children }) {
   const [description, setDescription] = useState('');
   const [imageProduct, setImageProduct] = useState('');
   const [category, setCategory] = useState('');
+  const [commentUser, setCommentUser] = useState('');
 
   const handleSetNameRegister = ({ target }) => setNameRegister(target.value);
   const handleSetLastNameRegister = ({ target }) => setLastName(target.value);
@@ -132,6 +134,14 @@ function Logic ({ children }) {
     document.location.reload();
     await requestCart.ProductCartDeleted(target.id);
     document.location.reload();
+  };
+
+  const handleCommentUser = ({ target }) => setCommentUser(target.value);
+
+  const handleButtonComment = async () => {
+    const request = await requestComments.commentUser(commentUser, dataUser.id, JSON.parse(localStorage.getItem('idProduct')));
+    console.log(request);
+    document.location.reload();
   }
 
   const handleLoggout = () => {
@@ -209,6 +219,8 @@ function Logic ({ children }) {
     handleButtonAddProductFavorite,
     handleButtonPurchase,
     handleButtonDeletePurchase,
+    handleCommentUser,
+    handleButtonComment,
     dataUser,
     emailLogin,
     passwordLogin,

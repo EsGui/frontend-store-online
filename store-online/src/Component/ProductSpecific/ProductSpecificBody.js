@@ -1,9 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import myContext from '../../Context/myContext';
 import requestProducts from '../../Services/requestProducts';
 
 function ProductSpecificBody({ value }) {
   const [productSpecific, setProductSpecific] = useState({});
   const { id } = value.match.params;
+
+  localStorage.setItem('idProduct', JSON.stringify(id));
+
+  const {
+    handleCommentUser,
+    handleButtonComment,
+  } = useContext(myContext)
 
   console.log(value)
 
@@ -43,6 +51,17 @@ function ProductSpecificBody({ value }) {
                         </div>
                     ))
                 }
+                {
+                  productSpecific && productSpecific.commentIdUser &&
+                  productSpecific.commentIdUser.map(({ comentarios, userComment }) => (
+                    <>
+                      <p>{ comentarios.commentProduct }</p>
+                      <img width="300px" src={ userComment.imageUser } alt={ userComment.firstName } />
+                    </>
+                  ))
+                }
+                <textarea onChange={ handleCommentUser } type="text" />
+                <button onClick={ handleButtonComment } type="button"></button>
               </>
             }
           </>
