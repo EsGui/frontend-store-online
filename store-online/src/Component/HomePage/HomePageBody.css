@@ -10,3 +10,10 @@
   padding: 20px;
   border-radius: 10px;
 }
+
+.DivSellerProduct {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: space-between;
+}

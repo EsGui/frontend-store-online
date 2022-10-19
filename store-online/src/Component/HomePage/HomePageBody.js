@@ -25,6 +25,7 @@ function HomePageBody() {
             productName,
             quantity,
             sold,
+            user
           }) => (
             <div className="DivProductAnnouncement">
                 <Link to={ `/productspecific/${ id }` }>
@@ -35,6 +36,15 @@ function HomePageBody() {
                   <p>{ description }</p>
                   <p>{ sold } / { quantity }</p>
                 </Link>
+                {
+                  <>
+                    <h3>Vendedor</h3>
+                    <div className="DivSellerProduct">
+                      <img width="200px" src={ user[0].imageUser } alt={ user[0].firstName } />
+                      <p>{ user[0].firstName }</p>
+                    </div>
+                  </>
+                }
                 <button id={ id } onClick={ handleButtonAddProductFavorite } type="button">Favoritar</button>
                 <button id={ id } onClick={ handleButtonPurchase } type="button">Adicionar ao carrinho</button>
             </div>

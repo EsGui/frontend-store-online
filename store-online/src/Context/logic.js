@@ -66,6 +66,7 @@ function Logic ({ children }) {
       localStorage.setItem('tokenUser', JSON.stringify(responseLoginUser.token));
     }
     setTokenUser(localStorage.getItem('tokenUser'));
+    document.location.reload();
   };
 
   const handleButtonRegisterProduct = async () => {
@@ -144,10 +145,7 @@ function Logic ({ children }) {
     document.location.reload();
   }
 
-  const handleLoggout = () => {
-    localStorage.removeItem('tokenUser');
-    setTokenUser('');
-  };
+  
 
   useEffect(() => {
     const request = async () => {
@@ -155,7 +153,7 @@ function Logic ({ children }) {
       setDataUser(User);
     }
     request();
-  }, [tokenUser]);
+  }, []);
 
   useEffect(() => {
     const request = async () => {
@@ -205,7 +203,6 @@ function Logic ({ children }) {
     handleSetGenreRegister,
     setDataUser,
     handleButtonLoginUser,
-    handleLoggout,
     handleProductName,
     handlePrice,
     handleQuantity,
@@ -221,6 +218,7 @@ function Logic ({ children }) {
     handleButtonDeletePurchase,
     handleCommentUser,
     handleButtonComment,
+    setTokenUser,
     dataUser,
     emailLogin,
     passwordLogin,
