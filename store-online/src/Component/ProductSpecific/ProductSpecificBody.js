@@ -61,7 +61,7 @@ function ProductSpecificBody({ value }) {
               productSpecific.commentIdUser.map(({ comentarios, userComment }) => (
                 <div className="StyleCommentUser">
                   <p>{ comentarios.commentProduct }</p>
-                  <img width="300px" src={ userComment.imageUser } alt={ userComment.firstName } />
+                  <img width="250px" height="250px" src={ userComment.imageUser } alt={ userComment.firstName } />
                 </div>
               ))
             }

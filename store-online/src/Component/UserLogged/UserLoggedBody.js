@@ -16,7 +16,7 @@ function UserLoggedBody() {
           <h1>Perfil</h1>
         </div>
         <div className="PhotographUserLoggedBody">
-          <img width="300px" height="400px" src={ dataUser.imageUser } alt={ dataUser.firstName } />
+          <img src={ dataUser.imageUser } alt={ dataUser.firstName } />
           <p>{ dataUser.firstName } { dataUser.lastName }</p>
         </div>
         <div className="ContainerDataUserLoggedBody">

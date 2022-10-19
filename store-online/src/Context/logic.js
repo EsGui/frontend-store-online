@@ -132,7 +132,6 @@ function Logic ({ children }) {
   };
 
   const handleButtonDeletePurchase = async ({ target }) => {
-    document.location.reload();
     await requestCart.ProductCartDeleted(target.id);
     document.location.reload();
   };
@@ -145,7 +144,6 @@ function Logic ({ children }) {
     document.location.reload();
   }
 
-  
 
   useEffect(() => {
     const request = async () => {
